@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Education & Experience | Jagruti Patil</title>
+
+  <style>
+    :root{
+      --bg:#0b1220;
+      --panel:#121b2e;
+      --text:#e7ecff;
+      --muted:#a9b3d6;
+      --accent:#6aa6ff;
+      --border:rgba(255,255,255,.12);
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --radius:16px;
+      --max:1100px;
+    }
+
+    *{ box-sizing:border-box; }
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background:
+        radial-gradient(1200px 600px at 10% 0%, rgba(106,166,255,.18), transparent 60%),
+        radial-gradient(900px 500px at 90% 20%, rgba(125,255,204,.10), transparent 55%),
+        var(--bg);
+      color:var(--text);
+      line-height:1.6;
+    }
+
+    /* Header */
+    header{
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(12px);
+      background: rgba(11,18,32,.72);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav{
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 10px 16px;
+      display:flex;
+      gap:14px;
+      align-items:center;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      font-weight:800;
+      white-space:nowrap;
+    }
+    .logo{
+      width:34px;height:34px;border-radius:10px;
+      background: linear-gradient(135deg, var(--accent), #7dffcc);
+      box-shadow: 0 10px 24px rgba(106,166,255,.22);
+    }
+
+    nav{ margin-left:auto; }
+    .tabs{
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+    }
+    .tab{
+      text-decoration:none;
+      color:var(--muted);
+      padding:9px 10px;
+      border-radius:12px;
+      border:1px solid transparent;
+      font-weight:700;
+      font-size:13px;
+    }
+    .tab:hover{
+      color:var(--text);
+      border-color:var(--border);
+      background: rgba(255,255,255,.05);
+    }
+    .tab.active{
+      color:var(--text);
+      border-color:var(--border);
+      background: rgba(255,255,255,.06);
+    }
+
+    main{
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 28px 16px 70px;
+    }
+
+    h1{ margin:0 0 16px; font-size:34px; }
+    h2{ margin:0 0 12px; font-size:22px; }
+
+    .card{
+      background: rgba(18,27,46,.84);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 18px;
+      margin-bottom: 20px;
+    }
+
+    /* Timeline grid */
+    .edu-grid{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap:16px;
+    }
+    .edu-item{
+      overflow:hidden;
+      padding:0;
+    }
+    .edu-item img{
+      width:100%;
+      height:200px;
+      object-fit:cover;
+      display:block;
+      border-bottom:1px solid var(--border);
+    }
+    .edu-body{
+      padding:14px;
+    }
+    .edu-date{
+      font-size:13px;
+      font-weight:700;
+      color:var(--muted);
+      margin-bottom:6px;
+    }
+    .edu-title{
+      font-size:16px;
+      font-weight:800;
+      margin-bottom:4px;
+    }
+    .edu-sub{
+      font-size:13.5px;
+      color:var(--muted);
+      margin-bottom:8px;
+    }
+    .edu-meta{
+      font-size:13.5px;
+      color:var(--muted);
+      line-height:1.6;
+    }
+
+    .two-col{
+      display:grid;
+      grid-template-columns: 1fr 1fr;
+      gap:16px;
+    }
+
+    footer{
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 18px 16px 40px;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+    }
+
+    @media (max-width: 980px){
+      .edu-grid{ grid-template-columns: 1fr; }
+      .two-col{ grid-template-columns: 1fr; }
+      h1{ font-size:28px; }
+    }
+  </style>
+</head>
+
+<body>
+<header>
+  <div class="nav">
+    <div class="brand">
+      <div class="logo"></div>
+      <span>Jagruti Patil</span>
+    </div>
+
+    <nav>
+      <div class="tabs">
+        <a class="tab" href="index.html">Home</a>
+        <a class="tab active" href="education.html">Education & Experience</a>
+        <a class="tab" href="projects.html">Course Projects</a>
+        <a class="tab" href="ta.html">Teaching Assistantships</a>
+        <a class="tab" href="research.html">Research</a>
+        <a class="tab" href="publications.html">Publications & Conferences</a>
+        <a class="tab" href="extracurriculars.html">Extracurriculars</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <h1>Education & Experience</h1>
+
+  <!-- Timeline -->
+  <div class="edu-grid">
+    <div class="card edu-item">
+      <img src="edu_phd.jpg" alt="PhD at IIT Gandhinagar">
+      <div class="edu-body">
+        <div class="edu-date">July 2022 – Present</div>
+        <div class="edu-title">Ph.D. — Biological Sciences & Engineering</div>
+        <div class="edu-sub">Indian Institute of Technology Gandhinagar</div>
+        <div class="edu-meta">
+          Mentor: Prof. Karla P. Mercado-Shekhar<br>
+          CPI: 9.35 / 10.00
+        </div>
+      </div>
+    </div>
+
+    <div class="card edu-item">
+      <img src="edu_jrf.jpg" alt="Junior Research Fellow at IITGN">
+      <div class="edu-body">
+        <div class="edu-date">August 2021 – July 2022</div>
+        <div class="edu-title">Junior Research Fellow</div>
+        <div class="edu-sub">Indian Institute of Technology Gandhinagar</div>
+        <div class="edu-meta">
+          Mentor: Prof. Karla P. Mercado-Shekhar
+        </div>
+      </div>
+    </div>
+
+    <div class="card edu-item">
+      <img src="edu_be.jpg" alt="B.E. at LD College of Engineering">
+      <div class="edu-body">
+        <div class="edu-date">August 2017 – June 2021</div>
+        <div class="edu-title">B.E. — Biomedical Engineering</div>
+        <div class="edu-sub">L.D. College of Engineering, Ahmedabad</div>
+        <div class="edu-meta">
+          Final Year Project Mentor: Mr. Utkarsh Pancholi<br>
+          CPI: 9.76 / 10.00
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Courses & Skills -->
+  <div class="two-col" style="margin-top:22px;">
+    <div class="card">
+      <h2>Courses Taken</h2>
+      <p class="edu-meta">
+        ES 657 – Biomedical Ultrasound<br>
+        EE 605 – Digital Image Processing<br>
+        BE 614 – Biostatistics<br>
+        ES 216 – Signals, Systems and Networks<br>
+        ES 641 – Electronic Instrumentation<br>
+        FP 602 – Writing<br>
+        CS 435 – Human–Computer Interaction<br>
+        CG 506 – Experimental Techniques in Cognitive Science<br>
+        BE 607 – Molecular and Cellular Biotechnology
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>Technical Skills</h2>
+      <p class="edu-meta">
+        <strong>Systems & Tools:</strong><br>
+        Verasonics Vantage 128 Research Ultrasound System, Field II,
+        MATLAB, Python, NI LabVIEW, NI Multisim, NEURON
+      </p>
+    </div>
+  </div>
+</main>
+
+<footer>
+  © <span id="year"></span> Jagruti Patil · Hosted on GitHub Pages
+</footer>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
