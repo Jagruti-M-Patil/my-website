@@ -1,0 +1,447 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Publications & Conferences | Jagruti Patil</title>
+
+  <style>
+    :root{
+      --bg:#0b1220;
+      --panel:#121b2e;
+      --text:#e7ecff;
+      --muted:#a9b3d6;
+      --accent:#6aa6ff;
+      --border:rgba(255,255,255,.12);
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --radius:16px;
+      --max:1100px;
+    }
+    *{ box-sizing:border-box; }
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background:
+        radial-gradient(1200px 600px at 10% 0%, rgba(106,166,255,.18), transparent 60%),
+        radial-gradient(900px 500px at 90% 20%, rgba(125,255,204,.10), transparent 55%),
+        var(--bg);
+      color:var(--text);
+      line-height:1.6;
+    }
+
+    header{
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(12px);
+      background: rgba(11,18,32,.72);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav{
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 10px 16px;
+      display:flex;
+      gap:14px;
+      align-items:center;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      font-weight:800;
+    }
+    .logo{
+      width:34px;height:34px;border-radius:10px;
+      background: linear-gradient(135deg, var(--accent), #7dffcc);
+    }
+    nav{ margin-left:auto; }
+    .tabs{
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+    .tab{
+      text-decoration:none;
+      color:var(--muted);
+      padding:9px 10px;
+      border-radius:12px;
+      font-weight:700;
+      font-size:13px;
+      white-space:nowrap;
+    }
+    .tab.active{
+      color:var(--text);
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.06);
+    }
+
+    main{
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 48px 16px 70px;
+    }
+
+    .pageTitle{
+      font-size: 34px;
+      margin: 0 0 8px;
+      letter-spacing: .2px;
+    }
+    .subtitle{
+      margin: 0 0 22px;
+      color: var(--muted);
+      max-width: 80ch;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns: 1fr;
+      gap: 16px;
+    }
+
+    .card{
+      background: rgba(18,27,46,.84);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 18px;
+    }
+
+    h2{
+      margin: 0 0 10px;
+      font-size: 18px;
+      letter-spacing: .2px;
+    }
+
+    .publist{
+      margin:0;
+      padding-left: 18px;
+      color: var(--text);
+    }
+    .publist li{
+      margin: 10px 0;
+      color: var(--muted);
+    }
+    .publist b{ color: var(--text); }
+    .tag{
+      display:inline-block;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.06);
+      color: var(--text);
+      padding: 2px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      margin-left: 8px;
+      vertical-align: middle;
+    }
+
+    /* Slider */
+    .sliderWrap{
+      margin-top: 16px;
+    }
+    .slider{
+      position: relative;
+      overflow: hidden;
+      border-radius: var(--radius);
+      border: 1px solid var(--border);
+      background: rgba(0,0,0,.25);
+      box-shadow: var(--shadow);
+      aspect-ratio: 16 / 9;
+      width: 100%;
+      max-height: 520px;
+    }
+    .slides{
+      height:100%;
+      display:flex;
+      transition: transform 500ms ease;
+    }
+    .slide{
+      min-width: 100%;
+      height:100%;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      position:relative;
+      background: rgba(0,0,0,.15);
+    }
+    .slide img{
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display:block;
+    }
+    .caption{
+      position:absolute;
+      left: 14px;
+      bottom: 14px;
+      right: 14px;
+      padding: 10px 12px;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      background: rgba(11,18,32,.68);
+      backdrop-filter: blur(10px);
+      color: var(--text);
+      font-size: 13px;
+      display:flex;
+      gap:10px;
+      align-items:center;
+      justify-content:space-between;
+    }
+    .caption small{ color: var(--muted); }
+
+    .dots{
+      display:flex;
+      gap:8px;
+      justify-content:center;
+      margin-top: 10px;
+    }
+    .dot{
+      width: 9px;
+      height: 9px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.10);
+      cursor:pointer;
+      opacity: .9;
+    }
+    .dot.active{
+      background: var(--accent);
+      opacity: 1;
+    }
+
+    .controls{
+      display:flex;
+      justify-content:space-between;
+      gap:10px;
+      margin-top: 10px;
+    }
+    .btn{
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.06);
+      color: var(--text);
+      padding: 10px 12px;
+      border-radius: 12px;
+      font-weight: 800;
+      cursor:pointer;
+    }
+    .btn:hover{ background: rgba(255,255,255,.10); }
+
+    footer{
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 18px 16px 40px;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+      text-align:center;
+    }
+
+    @media (min-width: 920px){
+      .grid{
+        grid-template-columns: 1.1fr .9fr;
+        align-items:start;
+      }
+    }
+  </style>
+</head>
+
+<body>
+<header>
+  <div class="nav">
+    <div class="brand">
+      <div class="logo"></div>
+      <span>Jagruti Patil</span>
+    </div>
+
+    <nav>
+      <div class="tabs">
+        <a class="tab" href="index.html">Home</a>
+        <a class="tab" href="education.html">Education & Experience</a>
+        <a class="tab" href="projects.html">Course Projects</a>
+        <a class="tab" href="ta.html">Teaching Assistantships</a>
+        <a class="tab" href="research.html">Research</a>
+        <a class="tab active" href="publications.html">Publications & Conferences</a>
+        <a class="tab" href="extracurriculars.html">Extracurriculars</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <h1 class="pageTitle">Publications & Conferences</h1>
+  <p class="subtitle">
+    A curated list of peer-reviewed publications and conference presentations. (I’ll add links/DOIs and PDFs as available.)
+  </p>
+
+  <div class="grid">
+    <section class="card">
+      <h2>Peer-Reviewed Publications</h2>
+      <ol class="publist">
+        <li>
+          Bisht, Sapna; Chandra, Akash; Marri, Bhanu; <b>Patil, J.M.</b>; Mercado-Shekhar, Karla P. (2025)
+          “Ultrasound shear wave attenuation estimates are sensitive to in-situ fluid content: In-vitro and ex-vivo studies,”
+          <i>Ultrasonic Imaging</i> <span class="tag">Accepted</span>
+        </li>
+        <li>
+          Raval, V.; Karmakar, J.; Kannan, K.; Oza, S.; <b>Patil, J.M.</b>; Mercado-Shekhar, K.P. (2024)
+          “Ultrasound biomarkers: Contrast enhanced ultrasound and Nakagami imaging to differentiate benign and malignant choroidal tumors,”
+          <i>Current Eye Research</i>.
+        </li>
+        <li>
+          Kakkar, M.; <b>Patil, J.M.</b>; Trivedi, V.; Yadav, A.; Saha, R.K.; Rao, S.; VazhayiI, V.; Pandya, H.J.; Mahadevan, A.; Shekhar, H.; Mercado-Shekhar, K.P. (2023)
+          “Hermite-scan imaging for differentiating glioblastoma from normal brain: simulations and ex vivo studies for applications in intra-operative tumor identification,”
+          <i>The Journal of the Acoustical Society of America</i>.
+        </li>
+      </ol>
+
+      <h2 style="margin-top:18px;">In Preparation</h2>
+      <ol class="publist">
+        <li>
+          <b>J.M. Patil</b>; V. VazhayiI; S. Rao; H. Pandya; A. Mahadevan; K.P. Mercado-Shekhar.
+          “Envelope statistics for differentiating glioblastoma from normal brain tissue: An ex-vivo feasibility study for potential applications in surgical guidance.”
+        </li>
+        <li>
+          <b>J.M. Patil</b>; H. Nair; P. Joshi; S. Murudkar; H. Shekhar; K.P. Mercado-Shekhar.
+          “Characterizing male baldness and female pattern hair loss via scalp and hair testing, and ultrasound envelope statistics: A pilot study.”
+        </li>
+      </ol>
+    </section>
+
+    <aside class="card">
+      <h2>Conference Presentations</h2>
+      <ol class="publist">
+        <li>
+          <b>Patil, J.M.</b>; Dharvi A.; Raval, V.; Mercado-Shekhar, K.P.
+          “Differentiating benign and malignant ocular choroidal tumors using Nakagami and Burr envelope statistics,”
+          <i>IEEE IUS 2025</i> (Utrecht, Netherlands) <span class="tag">Student Pitch</span>
+        </li>
+        <li>
+          <b>Patil, J.M.</b>; Mercado-Shekhar, K.P.
+          “Multiparametric High-Frequency Ultrasound for Assessing Oral Cancer Lesions,”
+          <i>PMRF Annual Symposium 2025</i> <span class="tag">Best Poster</span>
+        </li>
+        <li>
+          <b>Patil, J.M.</b>; Rao, S.; VazhayiI, V.; Pandya, H.J.; Mahadevan, A.; Mercado-Shekhar, K.P.
+          “Differentiating glioblastoma and normal tissue using Nakagami and Burr distribution analyses of the echo envelope: An ex-vivo study,”
+          <i>IEEE UFFC-JS 2024</i> (Taipei) <span class="tag">Poster</span>
+        </li>
+        <li>
+          <b>Patil, J.M.</b>; Nair, H.; Joshi, P.; Murudkar, S.; Shekhar, H.; Mercado-Shekhar, K.P.
+          “Characterizing male baldness and female pattern hair loss…,”
+          <i>IEEE SAUS 2024</i> <span class="tag">3rd Place</span>
+        </li>
+      </ol>
+      <p style="margin:10px 0 0;color:var(--muted);font-size:13px;">
+        Tip: We can split “Publications” and “Conferences” into two separate tabs later, exactly like your Google Sites menu.
+      </p>
+    </aside>
+  </div>
+
+  <!-- Image Slider -->
+  <section class="sliderWrap">
+    <h2 style="margin:22px 0 10px;">Highlights</h2>
+
+    <div class="slider" aria-label="Image slider">
+      <div class="slides" id="slides">
+        <!-- Replace these image filenames with your own -->
+        <div class="slide">
+          <img src="conf_1.jpg" alt="Conference highlight 1">
+          <div class="caption"><span>IEEE IUS / UFFC / SAUS moments</span><small>Swipe / click dots</small></div>
+        </div>
+        <div class="slide">
+          <img src="conf_2.jpg" alt="Conference highlight 2">
+          <div class="caption"><span>Poster presentation</span><small>Auto-play enabled</small></div>
+        </div>
+        <div class="slide">
+          <img src="conf_3.jpg" alt="Conference highlight 3">
+          <div class="caption"><span>Lab / collaborations</span><small>Replace images anytime</small></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="dots" id="dots" aria-label="Slider dots"></div>
+
+    <div class="controls">
+      <button class="btn" id="prev" type="button">← Prev</button>
+      <button class="btn" id="pause" type="button">Pause</button>
+      <button class="btn" id="next" type="button">Next →</button>
+    </div>
+
+    <p style="margin:10px 0 0;color:var(--muted);font-size:13px;">
+      Upload your images to the repo root as <b>conf_1.jpg</b>, <b>conf_2.jpg</b>, <b>conf_3.jpg</b> (or change the filenames above).
+    </p>
+  </section>
+</main>
+
+<footer>
+  © <span id="year"></span> Jagruti Patil · Hosted on GitHub Pages
+</footer>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+
+  const slidesEl = document.getElementById("slides");
+  const dotsEl   = document.getElementById("dots");
+  const total    = slidesEl.children.length;
+
+  let idx = 0;
+  let playing = true;
+  let timer = null;
+  const intervalMs = 3500;
+
+  function renderDots(){
+    dotsEl.innerHTML = "";
+    for(let i=0;i<total;i++){
+      const d = document.createElement("button");
+      d.className = "dot" + (i===idx ? " active" : "");
+      d.type = "button";
+      d.setAttribute("aria-label", `Go to slide ${i+1}`);
+      d.addEventListener("click", () => { goTo(i); restart(); });
+      dotsEl.appendChild(d);
+    }
+  }
+
+  function goTo(i){
+    idx = (i + total) % total;
+    slidesEl.style.transform = `translateX(-${idx*100}%)`;
+    [...dotsEl.children].forEach((d, k) => d.classList.toggle("active", k===idx));
+  }
+
+  function next(){ goTo(idx+1); }
+  function prev(){ goTo(idx-1); }
+
+  function start(){
+    playing = true;
+    document.getElementById("pause").textContent = "Pause";
+    timer = setInterval(next, intervalMs);
+  }
+
+  function stop(){
+    playing = false;
+    document.getElementById("pause").textContent = "Play";
+    clearInterval(timer);
+    timer = null;
+  }
+
+  function restart(){
+    if(!playing) return;
+    clearInterval(timer);
+    timer = setInterval(next, intervalMs);
+  }
+
+  document.getElementById("next").addEventListener("click", () => { next(); restart(); });
+  document.getElementById("prev").addEventListener("click", () => { prev(); restart(); });
+  document.getElementById("pause").addEventListener("click", () => { playing ? stop() : start(); });
+
+  // Optional: pause on hover
+  const slider = document.querySelector(".slider");
+  slider.addEventListener("mouseenter", () => stop());
+  slider.addEventListener("mouseleave", () => start());
+
+  renderDots();
+  goTo(0);
+  start();
+</script>
+</body>
+</html>
