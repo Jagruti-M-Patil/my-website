@@ -84,6 +84,65 @@
       padding:18px 16px 40px; color:var(--muted);
       border-top:1px solid var(--border);
     }
+
+    /* Education timeline with images */
+.edu-grid{
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin-top: 12px;
+}
+.edu-item{
+  padding: 0;
+  overflow: hidden;
+}
+.edu-item img{
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display:block;
+  border-bottom: 1px solid var(--border);
+}
+.edu-body{
+  padding: 14px;
+}
+.edu-date{
+  color: var(--muted);
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+.edu-title{
+  font-size: 16px;
+  font-weight: 800;
+  margin: 0 0 6px;
+  color: var(--text);
+}
+.edu-sub{
+  color: var(--muted);
+  margin: 0 0 10px;
+  font-size: 13.5px;
+}
+.edu-meta{
+  color: var(--muted);
+  font-size: 13.5px;
+  margin: 0;
+  line-height: 1.6;
+}
+
+.edu-two-col{
+  display:grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  margin-top: 14px;
+}
+
+@media (max-width: 980px){
+  .edu-grid{ grid-template-columns: 1fr; }
+  .edu-two-col{ grid-template-columns: 1fr; }
+  .edu-item img{ height: 220px; }
+}
+
     @media(max-width:980px){
       .hero{grid-template-columns:1fr;}
       nav{margin-left:0; width:100%;}
@@ -148,53 +207,77 @@
 
   <section id="edu" class="placeholder">
   <div class="card">
-    <h2>Education & Experience</h2>
+    <h2>Education &amp; Experience</h2>
 
-    <!-- PhD -->
-    <div class="mini">
-      <strong>Ph.D. in Biological Sciences and Engineering</strong><br>
-      Indian Institute of Technology Gandhinagar<br>
-      <em>July 2022 – Present</em><br>
-      Mentor: Prof. Karla P. Mercado-Shekhar<br>
-      CPI: 9.35 / 10.00
+    <!-- Timeline cards with images -->
+    <div class="edu-grid">
+      <!-- PhD -->
+      <div class="mini edu-item">
+        <img src="edu_phd.jpg" alt="PhD at IIT Gandhinagar" />
+        <div class="edu-body">
+          <div class="edu-date">July 2022 – Present</div>
+          <div class="edu-title">Ph.D. (Biological Sciences &amp; Engineering)</div>
+          <p class="edu-sub">Indian Institute of Technology Gandhinagar</p>
+          <p class="edu-meta">
+            Mentor: Prof. Karla P. Mercado-Shekhar<br>
+            CPI: 9.35 / 10.00
+          </p>
+        </div>
+      </div>
+
+      <!-- JRF -->
+      <div class="mini edu-item">
+        <img src="edu_jrf.jpg" alt="Junior Research Fellow at IIT Gandhinagar" />
+        <div class="edu-body">
+          <div class="edu-date">August 2021 – July 2022</div>
+          <div class="edu-title">Junior Research Fellow</div>
+          <p class="edu-sub">Indian Institute of Technology Gandhinagar</p>
+          <p class="edu-meta">
+            Mentor: Prof. Karla P. Mercado-Shekhar
+          </p>
+        </div>
+      </div>
+
+      <!-- BE -->
+      <div class="mini edu-item">
+        <img src="edu_be.jpg" alt="B.E. at L.D. College of Engineering" />
+        <div class="edu-body">
+          <div class="edu-date">August 2017 – June 2021</div>
+          <div class="edu-title">B.E. (Biomedical Engineering)</div>
+          <p class="edu-sub">L.D. College of Engineering, Ahmedabad</p>
+          <p class="edu-meta">
+            Final Year Project Mentor: Mr. Utkarsh Pancholi<br>
+            CPI: 9.76 / 10.00
+          </p>
+        </div>
+      </div>
     </div>
 
-    <!-- JRF -->
-    <div class="mini">
-      <strong>Junior Research Fellow</strong><br>
-      Indian Institute of Technology Gandhinagar<br>
-      <em>August 2021 – July 2022</em><br>
-      Mentor: Prof. Karla P. Mercado-Shekhar
-    </div>
+    <!-- Courses + Skills in two columns -->
+    <div class="edu-two-col">
+      <div class="mini">
+        <h3 style="margin:0 0 10px;">Courses Taken</h3>
+        <p class="edu-meta" style="margin:0;">
+          ES 657 – Biomedical Ultrasound<br>
+          EE 605 – Digital Image Processing<br>
+          BE 614 – Biostatistics<br>
+          ES 216 – Signals, Systems and Networks<br>
+          ES 641 – Electronic Instrumentation<br>
+          FP 602 – Writing<br>
+          CS 435 – Human–Computer Interaction<br>
+          CG 506 – Experimental Techniques in Cognitive Science<br>
+          BE 607 – Molecular and Cellular Biotechnology
+        </p>
+      </div>
 
-    <!-- BE -->
-    <div class="mini">
-      <strong>B.E. in Biomedical Engineering</strong><br>
-      L.D. College of Engineering, Ahmedabad<br>
-      <em>August 2017 – June 2021</em><br>
-      Final Year Project Mentor: Mr. Utkarsh Pancholi<br>
-      CPI: 9.76 / 10.00
-    </div>
-
-    <!-- Courses -->
-    <h3 style="margin-top:18px;">Courses Taken</h3>
-    <div class="mini">
-      ES 657 – Biomedical Ultrasound<br>
-      EE 605 – Digital Image Processing<br>
-      BE 614 – Biostatistics<br>
-      ES 216 – Signals, Systems and Networks<br>
-      ES 641 – Electronic Instrumentation<br>
-      FP 602 – Writing<br>
-      CS 435 – Human–Computer Interaction<br>
-      CG 506 – Experimental Techniques in Cognitive Science<br>
-      BE 607 – Molecular and Cellular Biotechnology
-    </div>
-
-    <!-- Skills -->
-    <h3 style="margin-top:18px;">Technical Skills</h3>
-    <div class="mini">
-      <strong>System Programming & Tools:</strong><br>
-      Verasonics Vantage 128 Research Ultrasound System, Field II Ultrasound Simulation Program, MATLAB, Python, NI LabVIEW, NI Multisim, NEURON
+      <div class="mini">
+        <h3 style="margin:0 0 10px;">Technical Skills</h3>
+        <p class="edu-meta" style="margin:0;">
+          <strong>System Programming &amp; Tools:</strong><br>
+          Verasonics Vantage 128 Research Ultrasound System, Field II, MATLAB, Python,
+          NI LabVIEW, NI Multisim, NEURON
+        </p>
+      </div>
     </div>
   </div>
 </section>
