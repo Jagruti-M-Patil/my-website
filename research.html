@@ -1,0 +1,315 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Research | Jagruti Patil</title>
+  <meta name="description" content="Research — Quantitative ultrasound, envelope statistics, and H-scan imaging for soft-tissue characterization." />
+
+  <style>
+    :root{
+      --bg:#0b1220;
+      --panel:#121b2e;
+      --text:#e7ecff;
+      --muted:#a9b3d6;
+      --accent:#6aa6ff;
+      --border:rgba(255,255,255,.12);
+      --shadow: 0 10px 30px rgba(0,0,0,.35);
+      --radius:16px;
+      --max: 1100px;
+    }
+
+    *{ box-sizing:border-box; }
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background:
+        radial-gradient(1200px 600px at 10% 0%, rgba(106,166,255,.18), transparent 60%),
+        radial-gradient(900px 500px at 90% 20%, rgba(125,255,204,.10), transparent 55%),
+        var(--bg);
+      color:var(--text);
+      line-height:1.6;
+    }
+
+    /* Header */
+    header{
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      backdrop-filter: blur(12px);
+      background: rgba(11,18,32,.72);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav{
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 10px 16px;
+      display:flex;
+      gap:14px;
+      align-items:center;
+    }
+    .brand{
+      display:flex;
+      align-items:center;
+      gap:10px;
+      font-weight:800;
+      white-space:nowrap;
+    }
+    .logo{
+      width:34px;height:34px;border-radius:10px;
+      background: linear-gradient(135deg, var(--accent), #7dffcc);
+      box-shadow: 0 10px 24px rgba(106,166,255,.22);
+    }
+    nav{ margin-left:auto; }
+    .tabs{
+      display:flex;
+      gap:8px;
+      flex-wrap:wrap;
+      justify-content:flex-end;
+    }
+    .tab{
+      text-decoration:none;
+      color:var(--muted);
+      padding:9px 10px;
+      border-radius: 12px;
+      border: 1px solid transparent;
+      transition: .2s ease;
+      font-weight:700;
+      font-size: 13px;
+      white-space:nowrap;
+    }
+    .tab:hover{
+      color:var(--text);
+      border-color: var(--border);
+      background: rgba(255,255,255,.05);
+    }
+    .tab.active{
+      color: var(--text);
+      border-color: var(--border);
+      background: rgba(255,255,255,.06);
+    }
+
+    main{
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 28px 16px 70px;
+    }
+    h1{ margin:0 0 10px; font-size: 34px; line-height:1.15; }
+    h2{ margin:18px 0 10px; font-size: 22px; }
+    p{ margin: 0 0 12px; color: var(--muted); }
+
+    .card{
+      background: rgba(18,27,46,.84);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 18px;
+    }
+
+    .grid{
+      display:grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 14px;
+      margin-top: 12px;
+    }
+    .mini{
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.03);
+      border-radius: 14px;
+      padding: 14px;
+      height: 100%;
+    }
+    .kicker{
+      font-size: 12px;
+      letter-spacing: .2px;
+      color: var(--muted);
+      font-weight: 800;
+      text-transform: uppercase;
+      margin-bottom: 6px;
+    }
+    .title{
+      font-size: 16px;
+      font-weight: 900;
+      margin: 0 0 6px;
+      color: var(--text);
+    }
+    .bullets{
+      margin: 8px 0 0;
+      padding-left: 18px;
+      color: var(--muted);
+      font-size: 13.5px;
+    }
+    .bullets li{ margin: 6px 0; }
+
+    .two-col{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 14px;
+      margin-top: 14px;
+    }
+
+    .pill-row{ display:flex; gap:8px; flex-wrap:wrap; margin-top: 10px; }
+    .pill{
+      font-size: 12px;
+      color: var(--text);
+      border:1px solid var(--border);
+      background: rgba(255,255,255,.04);
+      padding: 7px 10px;
+      border-radius: 999px;
+    }
+
+    .btnrow{ display:flex; gap:10px; flex-wrap:wrap; margin-top: 10px; }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      padding: 10px 12px;
+      border-radius: 14px;
+      text-decoration:none;
+      font-weight:800;
+      border:1px solid var(--border);
+      color: var(--text);
+      background: rgba(255,255,255,.04);
+      transition:.2s ease;
+    }
+    .btn:hover{ transform: translateY(-1px); }
+    .btn.primary{
+      background: linear-gradient(135deg, rgba(106,166,255,.95), rgba(125,255,204,.75));
+      border-color: transparent;
+      color:#07101f;
+    }
+
+    footer{
+      max-width: var(--max);
+      margin: 0 auto;
+      padding: 18px 16px 40px;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+    }
+
+    @media (max-width: 980px){
+      h1{ font-size: 28px; }
+      nav{ margin-left:0; width:100%; }
+      .tabs{ justify-content:flex-start; }
+      .grid{ grid-template-columns: 1fr; }
+      .two-col{ grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+
+<body>
+<header>
+  <div class="nav">
+    <div class="brand">
+      <div class="logo" aria-hidden="true"></div>
+      <span>Jagruti Patil</span>
+    </div>
+
+    <nav aria-label="Primary">
+      <div class="tabs">
+        <a class="tab" href="index.html">Home</a>
+        <a class="tab" href="education.html">Education &amp; Experience</a>
+        <a class="tab" href="projects.html">Course Projects</a>
+        <a class="tab" href="ta.html">Teaching Assistantships</a>
+        <a class="tab active" href="research.html">Research</a>
+        <a class="tab" href="publications.html">Publications &amp; Conferences</a>
+        <a class="tab" href="extracurriculars.html">Extracurriculars</a>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <div class="card">
+    <h1>Research</h1>
+    <p>
+      My research focuses on <strong>quantitative ultrasound (QUS)</strong> methods that extract information
+      about tissue microstructure from backscattered echoes. I develop and validate approaches based on
+      <strong>envelope statistics</strong> (e.g., Nakagami and Burr-family models) and <strong>H-scan imaging</strong>
+      to characterize soft tissue and support better differentiation between tissue states.
+    </p>
+
+    <div class="pill-row" aria-label="Keywords">
+      <span class="pill">Quantitative Ultrasound (QUS)</span>
+      <span class="pill">Envelope Statistics</span>
+      <span class="pill">Nakagami</span>
+      <span class="pill">Burr / Generalized Logistic</span>
+      <span class="pill">H-scan Imaging</span>
+      <span class="pill">Soft Tissue Characterization</span>
+    </div>
+
+    <div class="btnrow">
+      <a class="btn primary" href="publications.html">View Publications</a>
+      <a class="btn" href="education.html">Education</a>
+      <a class="btn" href="index.html">Home</a>
+    </div>
+  </div>
+
+  <h2>Research Themes</h2>
+  <div class="grid">
+    <div class="mini">
+      <div class="kicker">Theme 1</div>
+      <div class="title">Envelope Statistics & Scattering Models</div>
+      <ul class="bullets">
+        <li>Modeling echo-envelope distributions to quantify deviations from Rayleigh-like scattering.</li>
+        <li>Parameter estimation and fitting strategies for robust, reproducible QUS biomarkers.</li>
+        <li>Interpreting parameter trends in terms of microstructural heterogeneity and scatterer statistics.</li>
+      </ul>
+    </div>
+
+    <div class="mini">
+      <div class="kicker">Theme 2</div>
+      <div class="title">H-scan Imaging (GH Filter Banks)</div>
+      <ul class="bullets">
+        <li>Frequency-dependent backscatter characterization using Gaussian-weighted Hermite (GH) filters.</li>
+        <li>Generating parametric maps (e.g., IWPR) to visualize inherent tissue scattering changes.</li>
+        <li>Validation using controlled acquisitions and ROI-based analysis.</li>
+      </ul>
+    </div>
+
+    <div class="mini">
+      <div class="kicker">Theme 3</div>
+      <div class="title">Phantom & Ex-vivo Evaluation</div>
+      <ul class="bullets">
+        <li>Designing tissue-mimicking phantoms and ex-vivo protocols for method assessment.</li>
+        <li>ROI-driven evaluation and effect-size analysis across conditions and timepoints.</li>
+        <li>Building reproducible pipelines in MATLAB/Python with standardized outputs.</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="two-col">
+    <div class="card">
+      <h2>Representative Applications</h2>
+      <ul class="bullets">
+        <li><strong>Brain tissue (ex-vivo):</strong> differentiating glioblastoma and normal tissue using QUS markers derived from envelope statistics.</li>
+        <li><strong>Oral lesion progression (preclinical):</strong> tracking microstructural and scattering changes using H-scan metrics and statistical parameters.</li>
+        <li><strong>Ocular tissue (research/translation):</strong> envelope-statistics based characterization for choroidal tumor differentiation (project context).</li>
+      </ul>
+      <p style="margin-top:10px;">
+        (I keep this page focused on methods and applications; detailed outcomes and citations live in the Publications section.)
+      </p>
+    </div>
+
+    <div class="card">
+      <h2>Methods & Tools</h2>
+      <ul class="bullets">
+        <li><strong>Signal processing:</strong> RF/IQ handling, Hilbert envelope, log-compression considerations, ROI masking.</li>
+        <li><strong>Modeling:</strong> Nakagami and Burr-family fitting; goodness-of-fit and stability checks.</li>
+        <li><strong>H-scan:</strong> GH filter generation, convolution pipelines, parametric image overlays.</li>
+        <li><strong>Analysis:</strong> effect sizes (e.g., Cohen’s d), visualization, structured dataset management.</li>
+        <li><strong>Tools:</strong> MATLAB, Python; Verasonics Vantage (as applicable).</li>
+      </ul>
+    </div>
+  </div>
+</main>
+
+<footer>
+  © <span id="year"></span> Jagruti Patil · Hosted on GitHub Pages
+</footer>
+
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+</body>
+</html>
