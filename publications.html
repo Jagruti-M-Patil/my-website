@@ -55,12 +55,15 @@
       font-weight:800; letter-spacing:.2px;
     }
     .logo{
-      width:40px; height:40px; border-radius:14px;
-      background: linear-gradient(135deg, rgba(106,166,255,.95), rgba(86,255,200,.80));
-      box-shadow: var(--shadow);
-      flex:0 0 auto;
-    }
-    .tabs{
+          width:36px;
+          height:36px;
+          border-radius:12px;
+          object-fit: cover;
+          border: 1px solid rgba(255,255,255,.18);
+          box-shadow: 0 10px 24px rgba(0,0,0,.25);
+          flex: 0 0 auto;
+        }
+.tabs{
       display:flex; flex-wrap:wrap; gap:8px;
       align-items:center;
       justify-content:flex-end;
@@ -213,10 +216,10 @@
   <!-- NAV -->
   <div class="topbar">
     <div class="nav">
-      <div class="brand">
-        <div class="logo" aria-hidden="true"></div>
-        <div>Jagruti Patil</div>
-      </div>
+    <div class="brand">
+      <img class="logo" src="cartoonizepic.png" alt="Jagruti Patil logo">
+      <span>Jagruti Patil</span>
+    </div>
 
       <div class="tabs">
         <a class="tab" href="index.html">Home</a>
