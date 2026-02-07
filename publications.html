@@ -4,257 +4,218 @@
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Publications & Conferences | Jagruti Patil</title>
+  <meta name="description" content="Publications and conference presentations of Jagruti Patil." />
 
   <style>
     :root{
       --bg:#0b1220;
-      --panel:#121b2e;
+      --card:#121b2e;
       --text:#e7ecff;
       --muted:#a9b3d6;
       --accent:#6aa6ff;
-      --border:rgba(255,255,255,.12);
-      --shadow: 0 10px 30px rgba(0,0,0,.35);
-      --radius:16px;
+      --border:rgba(255,255,255,.10);
+      --shadow:0 10px 30px rgba(0,0,0,.35);
+      --radius:18px;
       --max:1100px;
     }
-    *{ box-sizing:border-box; }
+
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0}
     body{
-      margin:0;
-      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Liberation Sans";
       background:
-        radial-gradient(1200px 600px at 10% 0%, rgba(106,166,255,.18), transparent 60%),
-        radial-gradient(900px 500px at 90% 20%, rgba(125,255,204,.10), transparent 55%),
+        radial-gradient(1200px 700px at 70% 0%, rgba(106,166,255,.18), transparent 60%),
+        radial-gradient(900px 600px at 20% 20%, rgba(86,255,200,.10), transparent 60%),
         var(--bg);
       color:var(--text);
       line-height:1.6;
     }
 
-    header{
-      position: sticky;
-      top: 0;
-      z-index: 50;
-      backdrop-filter: blur(12px);
-      background: rgba(11,18,32,.72);
+    a{color:var(--accent); text-decoration:none}
+    a:hover{text-decoration:underline}
+
+    /* Top nav */
+    .topbar{
+      position:sticky; top:0; z-index:50;
+      background: rgba(11,18,32,.78);
+      backdrop-filter: blur(10px);
       border-bottom: 1px solid var(--border);
     }
     .nav{
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 10px 16px;
+      max-width:var(--max);
+      margin:0 auto;
+      padding:14px 18px;
       display:flex;
-      gap:14px;
       align-items:center;
+      justify-content:space-between;
+      gap:14px;
     }
     .brand{
-      display:flex;
-      align-items:center;
-      gap:10px;
-      font-weight:800;
+      display:flex; align-items:center; gap:10px;
+      font-weight:800; letter-spacing:.2px;
     }
     .logo{
-      width:34px;height:34px;border-radius:10px;
-      background: linear-gradient(135deg, var(--accent), #7dffcc);
+      width:40px; height:40px; border-radius:14px;
+      background: linear-gradient(135deg, rgba(106,166,255,.95), rgba(86,255,200,.80));
+      box-shadow: var(--shadow);
+      flex:0 0 auto;
     }
-    nav{ margin-left:auto; }
     .tabs{
-      display:flex;
-      gap:8px;
-      flex-wrap:wrap;
+      display:flex; flex-wrap:wrap; gap:8px;
+      align-items:center;
       justify-content:flex-end;
     }
     .tab{
-      text-decoration:none;
-      color:var(--muted);
-      padding:9px 10px;
+      padding:10px 12px;
       border-radius:12px;
-      font-weight:700;
-      font-size:13px;
-      white-space:nowrap;
+      border:1px solid transparent;
+      color:var(--text);
+      font-weight:600;
+      font-size:14px;
+      opacity:.92;
+    }
+    .tab:hover{
+      border-color: var(--border);
+      background: rgba(255,255,255,.04);
+      text-decoration:none;
     }
     .tab.active{
-      color:var(--text);
-      border:1px solid var(--border);
+      border-color: var(--border);
       background: rgba(255,255,255,.06);
+      opacity:1;
     }
 
+    /* Layout */
     main{
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 48px 16px 70px;
+      max-width:var(--max);
+      margin:0 auto;
+      padding: 26px 18px 60px;
     }
-
     .pageTitle{
+      margin: 8px 0 6px;
       font-size: 34px;
-      margin: 0 0 8px;
-      letter-spacing: .2px;
+      letter-spacing:-.5px;
     }
     .subtitle{
-      margin: 0 0 22px;
+      margin: 0 0 18px;
       color: var(--muted);
-      max-width: 80ch;
+      max-width: 78ch;
     }
-
-    .grid{
-      display:grid;
-      grid-template-columns: 1fr;
-      gap: 16px;
-    }
-
     .card{
       background: rgba(18,27,46,.84);
       border: 1px solid var(--border);
       border-radius: var(--radius);
       box-shadow: var(--shadow);
-      padding: 18px;
+      padding: 18px 18px;
+      margin: 14px 0;
     }
-
     h2{
-      margin: 0 0 10px;
-      font-size: 18px;
-      letter-spacing: .2px;
+      margin: 0 0 12px;
+      font-size: 20px;
+      letter-spacing:-.2px;
     }
-
-    .publist{
-      margin:0;
-      padding-left: 18px;
+    h3{
+      margin: 14px 0 8px;
+      font-size: 16px;
       color: var(--text);
     }
-    .publist li{
-      margin: 10px 0;
-      color: var(--muted);
+    ul{
+      margin: 8px 0 0;
+      padding-left: 20px;
     }
-    .publist b{ color: var(--text); }
+    li{
+      margin: 10px 0;
+      color: var(--text);
+    }
+    .meta{
+      color: var(--muted);
+      font-size: 14px;
+    }
     .tag{
       display:inline-block;
-      border: 1px solid var(--border);
-      background: rgba(255,255,255,.06);
-      color: var(--text);
-      padding: 2px 10px;
-      border-radius: 999px;
-      font-size: 12px;
-      font-weight: 700;
+      padding: 3px 10px;
       margin-left: 8px;
+      border-radius: 999px;
+      border: 1px solid var(--border);
+      background: rgba(255,255,255,.04);
+      color: var(--muted);
+      font-size: 12px;
       vertical-align: middle;
     }
 
     /* Slider */
-    .sliderWrap{
-      margin-top: 16px;
+    .pub-slider-section{
+      margin-top: 10px;
     }
-    .slider{
+    .pub-slider{
       position: relative;
+      max-width: 980px;
+      margin: 10px auto 0;
       overflow: hidden;
-      border-radius: var(--radius);
+      border-radius: 18px;
       border: 1px solid var(--border);
-      background: rgba(0,0,0,.25);
+      background: rgba(0,0,0,.18);
       box-shadow: var(--shadow);
-      aspect-ratio: 16 / 9;
-      width: 100%;
-      max-height: 520px;
     }
-    .slides{
-      height:100%;
+    .pub-slides{
       display:flex;
-      transition: transform 500ms ease;
+      transition: transform .6s ease;
+      will-change: transform;
     }
-    .slide{
-      min-width: 100%;
-      height:100%;
-      display:flex;
-      align-items:center;
-      justify-content:center;
-      position:relative;
-      background: rgba(0,0,0,.15);
-    }
-    .slide img{
-      width: 100%;
-      height: 100%;
+    .pub-slides img{
+      width:100%;
+      flex: 0 0 100%;
+      height: 420px;
       object-fit: cover;
       display:block;
     }
-    .caption{
-      position:absolute;
-      left: 14px;
-      bottom: 14px;
-      right: 14px;
-      padding: 10px 12px;
-      border-radius: 14px;
-      border: 1px solid var(--border);
-      background: rgba(11,18,32,.68);
-      backdrop-filter: blur(10px);
-      color: var(--text);
-      font-size: 13px;
-      display:flex;
-      gap:10px;
-      align-items:center;
-      justify-content:space-between;
+    .pub-dots{
+      text-align:center;
+      margin-top: 12px;
+      user-select:none;
     }
-    .caption small{ color: var(--muted); }
-
-    .dots{
-      display:flex;
-      gap:8px;
-      justify-content:center;
-      margin-top: 10px;
+    .pub-dots span{
+      display:inline-block;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.35);
+      margin: 0 4px;
+      cursor: pointer;
+      border: 1px solid rgba(255,255,255,.15);
     }
-    .dot{
-      width: 9px;
-      height: 9px;
-      border-radius: 999px;
-      border: 1px solid var(--border);
-      background: rgba(255,255,255,.10);
-      cursor:pointer;
-      opacity: .9;
-    }
-    .dot.active{
+    .pub-dots span.active{
       background: var(--accent);
-      opacity: 1;
     }
-
-    .controls{
-      display:flex;
-      justify-content:space-between;
-      gap:10px;
-      margin-top: 10px;
-    }
-    .btn{
-      border: 1px solid var(--border);
-      background: rgba(255,255,255,.06);
-      color: var(--text);
-      padding: 10px 12px;
-      border-radius: 12px;
-      font-weight: 800;
-      cursor:pointer;
-    }
-    .btn:hover{ background: rgba(255,255,255,.10); }
 
     footer{
-      max-width: var(--max);
-      margin: 0 auto;
-      padding: 18px 16px 40px;
+      max-width:var(--max);
+      margin:0 auto;
+      padding: 18px;
       color: var(--muted);
       border-top: 1px solid var(--border);
       text-align:center;
+      font-size: 13px;
+      opacity:.9;
     }
 
-    @media (min-width: 920px){
-      .grid{
-        grid-template-columns: 1.1fr .9fr;
-        align-items:start;
-      }
+    @media (max-width: 720px){
+      .pageTitle{font-size:28px}
+      .pub-slides img{height: 300px}
+      .tab{font-size:13px; padding:9px 10px}
     }
   </style>
 </head>
 
 <body>
-<header>
-  <div class="nav">
-    <div class="brand">
-      <div class="logo"></div>
-      <span>Jagruti Patil</span>
-    </div>
+  <!-- NAV -->
+  <div class="topbar">
+    <div class="nav">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <div>Jagruti Patil</div>
+      </div>
 
-    <nav>
       <div class="tabs">
         <a class="tab" href="index.html">Home</a>
         <a class="tab" href="education.html">Education & Experience</a>
@@ -264,184 +225,226 @@
         <a class="tab active" href="publications.html">Publications & Conferences</a>
         <a class="tab" href="extracurriculars.html">Extracurriculars</a>
       </div>
-    </nav>
+    </div>
   </div>
-</header>
 
-<main>
-  <h1 class="pageTitle">Publications & Conferences</h1>
-  <p class="subtitle">
-    A curated list of peer-reviewed publications and conference presentations. (I’ll add links/DOIs and PDFs as available.)
-  </p>
+  <main>
+    <h1 class="pageTitle">Publications & Conferences</h1>
+    <p class="subtitle">
+      Selected peer-reviewed publications and conference presentations. (I can also add DOI links, PDFs, and “BibTeX” buttons later.)
+    </p>
 
-  <div class="grid">
+    <!-- PUBLICATIONS -->
     <section class="card">
       <h2>Peer-Reviewed Publications</h2>
-      <ol class="publist">
+      <ul>
         <li>
           Bisht, Sapna; Chandra, Akash; Marri, Bhanu; <b>Patil, J.M.</b>; Mercado-Shekhar, Karla P. (2025)
-          “Ultrasound shear wave attenuation estimates are sensitive to in-situ fluid content: In-vitro and ex-vivo studies,”
-          <i>Ultrasonic Imaging</i> <span class="tag">Accepted</span>
+          “Ultrasound shear wave attenuation estimates are sensitive to in-situ fluid content: In-vitro and ex-vivo studies”,
+          <i>Ultrasonic Imaging</i>.
+          <span class="tag">Accepted</span>
         </li>
+
         <li>
           Raval, V.; Karmakar, J.; Kannan, K.; Oza, S.; <b>Patil, J.M.</b>; Mercado-Shekhar, K.P. (2024)
-          “Ultrasound biomarkers: Contrast enhanced ultrasound and Nakagami imaging to differentiate benign and malignant choroidal tumors,”
+          “Ultrasound biomarkers: Contrast enhanced ultrasound and Nakagami imaging to differentiate benign and malignant choroidal tumors”,
           <i>Current Eye Research</i>.
         </li>
+
         <li>
-          Kakkar, M.; <b>Patil, J.M.</b>; Trivedi, V.; Yadav, A.; Saha, R.K.; Rao, S.; VazhayiI, V.; Pandya, H.J.; Mahadevan, A.; Shekhar, H.; Mercado-Shekhar, K.P. (2023)
-          “Hermite-scan imaging for differentiating glioblastoma from normal brain: simulations and ex vivo studies for applications in intra-operative tumor identification,”
+          Kakkar, M.; <b>Patil, J.M.</b>; Trivedi, V.; Yadav, A.; Saha, R.K.; Rao, S.; Vazhayi, V.; Pandya, H.J.;
+          Mahadevan, A.; Shekhar, H.; Mercado-Shekhar, K.P. (2023)
+          “Hermite-scan imaging for differentiating glioblastoma from normal brain: simulations and ex vivo studies for applications in intra-operative tumor identification”,
           <i>The Journal of the Acoustical Society of America</i>.
         </li>
-      </ol>
+      </ul>
 
-      <h2 style="margin-top:18px;">In Preparation</h2>
-      <ol class="publist">
+      <h3>In Preparation</h3>
+      <ul>
         <li>
-          <b>J.M. Patil</b>; V. VazhayiI; S. Rao; H. Pandya; A. Mahadevan; K.P. Mercado-Shekhar.
-          “Envelope statistics for differentiating glioblastoma from normal brain tissue: An ex-vivo feasibility study for potential applications in surgical guidance.”
+          <b>J.M. Patil</b>; Vazhayi, V.; Rao, S.; Pandya, A.; Mahadevan, A.; Mercado-Shekhar, K.P.
+          “Envelope statistics for differentiating glioblastoma from normal brain tissue: An ex-vivo feasibility study for potential applications in surgical guidance”.
         </li>
         <li>
-          <b>J.M. Patil</b>; H. Nair; P. Joshi; S. Murudkar; H. Shekhar; K.P. Mercado-Shekhar.
-          “Characterizing male baldness and female pattern hair loss via scalp and hair testing, and ultrasound envelope statistics: A pilot study.”
+          <b>J.M. Patil</b>; Nair, H.; Joshi, P.; Murudkar, S.; Shekhar, H.; Mercado-Shekhar, K.P.
+          “Characterizing male baldness and female pattern hair loss via scalp and hair testing, and ultrasound envelope statistics: A pilot study”.
         </li>
-      </ol>
+      </ul>
+
+      <p class="meta">Tip: If you want, we can format these in IEEE/APA style and add DOI / journal links.</p>
     </section>
 
-    <aside class="card">
+    <!-- CONFERENCES -->
+    <section class="card">
       <h2>Conference Presentations</h2>
-      <ol class="publist">
+
+      <h3>2025</h3>
+      <ul>
         <li>
-          <b>Patil, J.M.</b>; Dharvi A.; Raval, V.; Mercado-Shekhar, K.P.
-          “Differentiating benign and malignant ocular choroidal tumors using Nakagami and Burr envelope statistics,”
-          <i>IEEE IUS 2025</i> (Utrecht, Netherlands) <span class="tag">Student Pitch</span>
+          <b>Patil, J.M.</b>; Dharviya, A.; Raval, V.; Mercado-Shekhar, K.P.
+          “Differentiating benign and malignant ocular choroidal tumors using Nakagami and Burr envelope statistics”,
+          IEEE International Ultrasonics Symposium (IUS), Utrecht, Netherlands (15–18 Sept 2025).
+          <span class="tag">Lecture</span>
+          <span class="tag">Student Pitch (Selected)</span>
         </li>
+
         <li>
           <b>Patil, J.M.</b>; Mercado-Shekhar, K.P.
-          “Multiparametric High-Frequency Ultrasound for Assessing Oral Cancer Lesions,”
-          <i>PMRF Annual Symposium 2025</i> <span class="tag">Best Poster</span>
+          “Multiparametric High-Frequency Ultrasound for Assessing Oral Cancer Lesions”,
+          PMRF Annual Symposium, IIT Hyderabad (16–17 March 2025).
+          <span class="tag">Poster</span>
+          <span class="tag">Best Poster Award</span>
         </li>
+      </ul>
+
+      <h3>2024</h3>
+      <ul>
         <li>
-          <b>Patil, J.M.</b>; Rao, S.; VazhayiI, V.; Pandya, H.J.; Mahadevan, A.; Mercado-Shekhar, K.P.
-          “Differentiating glioblastoma and normal tissue using Nakagami and Burr distribution analyses of the echo envelope: An ex-vivo study,”
-          <i>IEEE UFFC-JS 2024</i> (Taipei) <span class="tag">Poster</span>
+          <b>Patil, J.M.</b>; Rao, S.; Vazhayi, V.; Pandya, H.J.; Mahadevan, A.; Mercado-Shekhar, K.P.
+          “Differentiating glioblastoma and normal tissue using Nakagami and Burr distribution analyses of the echo envelope: An ex-vivo study”,
+          IEEE UFFC-JS, Taipei, Taiwan (22–26 Sept 2024).
+          <span class="tag">Poster</span>
         </li>
+
         <li>
           <b>Patil, J.M.</b>; Nair, H.; Joshi, P.; Murudkar, S.; Shekhar, H.; Mercado-Shekhar, K.P.
-          “Characterizing male baldness and female pattern hair loss…,”
-          <i>IEEE SAUS 2024</i> <span class="tag">3rd Place</span>
+          “Characterizing male baldness and female pattern hair loss via scalp and hair testing, and ultrasound envelope statistics: A pilot study”,
+          IEEE SAUS, Gandhinagar, India (27–29 March 2024).
+          <span class="tag">3rd Place</span>
+          <span class="tag">Best Poster Award</span>
         </li>
-      </ol>
-      <p style="margin:10px 0 0;color:var(--muted);font-size:13px;">
-        Tip: We can split “Publications” and “Conferences” into two separate tabs later, exactly like your Google Sites menu.
+
+        <li>
+          Oza, S.H.; <b>Patil, J.M.</b>; Raval, V.; Mercado-Shekhar, K.P.
+          “Differentiation of intraocular tumors using Nakagami envelope statistics”,
+          IEEE SAUS, Gandhinagar, India (27–29 March 2024).
+          <span class="tag">Best Poster Award Finalist</span>
+        </li>
+
+        <li>
+          Singh, A.K.; <b>Patil, J.M.</b>; Shekhar, H.
+          “The pth standard deviation factor-weighted delay-and-sum beamforming for needle visualization in B-mode ultrasound images”,
+          IEEE SAUS, Gandhinagar, India (27–29 March 2024).
+          <span class="tag">Best Poster Award Finalist</span>
+        </li>
+      </ul>
+
+      <h3>2023–2022</h3>
+      <ul>
+        <li>
+          <b>Patil, J.M.</b>; Trivedi, V.; Yadav, A.; Pandya, H.J.; Vazhayi, V.; Rao, S.; Mahadevan, A.; Mercado-Shekhar, K.P.
+          “Differentiating normal brain tissue and glioblastoma using the integrated backscatter coefficient: An ex vivo study”,
+          IEEE IUS, Montreal, Canada (3–8 Sept 2023).
+          <span class="tag">Poster</span>
+        </li>
+
+        <li>
+          Kakkar, M.; <b>Patil, J.M.</b>; Trivedi, V.; Yadav, A.; Rao, S.; Vazhayi, V.; Mahadevan, A.; Shekhar, H.; Mercado-Shekhar, K.P.
+          “Evaluating the feasibility of differentiating glioblastoma and normal brain tissue using H-scan imaging: An ex vivo study”,
+          ASA Meeting (184th), Chicago, Illinois, USA (8–12 May 2023).
+          <span class="tag">Lecture</span>
+        </li>
+
+        <li>
+          <b>Patil, J.M.</b>; Vazhayi, V.; Rao, S.; Mahadevan, A.; Mercado-Shekhar, K.P.
+          “Differentiating normal brain tissue and glioblastoma using the integrated backscatter coefficient in ultrasound imaging”,
+          Symposium cum Hands-on Workshop on Medical Imaging, IISER Thiruvananthapuram (20–22 Oct 2022).
+          <span class="tag">Poster</span>
+        </li>
+      </ul>
+    </section>
+
+    <!-- IMAGE SLIDER -->
+    <section class="card pub-slider-section">
+      <h2>Highlights (Photos)</h2>
+      <p class="meta" style="margin-top:-6px;">
+        Add/replace images anytime by uploading files named pub_1.jpg … pub_9.jpg (HEIC will not display on Pages).
       </p>
-    </aside>
-  </div>
 
-  <!-- Image Slider -->
-  <section class="sliderWrap">
-    <h2 style="margin:22px 0 10px;">Highlights</h2>
-
-    <div class="slider" aria-label="Image slider">
-      <div class="slides" id="slides">
-        <!-- Replace these image filenames with your own -->
-        <div class="slide">
-          <img src="conf_1.jpg" alt="Conference highlight 1">
-          <div class="caption"><span>IEEE IUS / UFFC / SAUS moments</span><small>Swipe / click dots</small></div>
-        </div>
-        <div class="slide">
-          <img src="conf_2.jpg" alt="Conference highlight 2">
-          <div class="caption"><span>Poster presentation</span><small>Auto-play enabled</small></div>
-        </div>
-        <div class="slide">
-          <img src="conf_3.jpg" alt="Conference highlight 3">
-          <div class="caption"><span>Lab / collaborations</span><small>Replace images anytime</small></div>
+      <div class="pub-slider" aria-label="Publication and conference image slider">
+        <div class="pub-slides" id="pubSlides">
+          <img src="pub_1.jpg" alt="Highlight 1">
+          <img src="pub_2.jpg" alt="Highlight 2">
+          <img src="pub_3.jpg" alt="Highlight 3">
+          <img src="pub_4.jpg" alt="Highlight 4">
+          <img src="pub_5.jpeg" alt="Highlight 5">
+          <!-- Convert HEIC to JPG and upload as pub_6.jpg ... pub_9.jpg -->
+          <img src="pub_6.jpg" alt="Highlight 6">
+          <img src="pub_7.jpg" alt="Highlight 7">
+          <img src="pub_8.jpg" alt="Highlight 8">
+          <img src="pub_9.jpg" alt="Highlight 9">
         </div>
       </div>
-    </div>
 
-    <div class="dots" id="dots" aria-label="Slider dots"></div>
+      <div class="pub-dots" id="pubDots" aria-label="Slider dots"></div>
+    </section>
 
-    <div class="controls">
-      <button class="btn" id="prev" type="button">← Prev</button>
-      <button class="btn" id="pause" type="button">Pause</button>
-      <button class="btn" id="next" type="button">Next →</button>
-    </div>
+  </main>
 
-    <p style="margin:10px 0 0;color:var(--muted);font-size:13px;">
-      Upload your images to the repo root as <b>conf_1.jpg</b>, <b>conf_2.jpg</b>, <b>conf_3.jpg</b> (or change the filenames above).
-    </p>
-  </section>
-</main>
+  <footer>
+    © <span id="year"></span> Jagruti Patil · Hosted on GitHub Pages
+  </footer>
 
-<footer>
-  © <span id="year"></span> Jagruti Patil · Hosted on GitHub Pages
-</footer>
+  <script>
+    // footer year
+    document.getElementById("year").textContent = new Date().getFullYear();
 
-<script>
-  document.getElementById("year").textContent = new Date().getFullYear();
+    // slider
+    const slides = document.getElementById("pubSlides");
+    const images = slides ? slides.querySelectorAll("img") : [];
+    const dotsContainer = document.getElementById("pubDots");
 
-  const slidesEl = document.getElementById("slides");
-  const dotsEl   = document.getElementById("dots");
-  const total    = slidesEl.children.length;
+    let index = 0;
+    let timer = null;
+    let intervalMs = 3500;
 
-  let idx = 0;
-  let playing = true;
-  let timer = null;
-  const intervalMs = 3500;
-
-  function renderDots(){
-    dotsEl.innerHTML = "";
-    for(let i=0;i<total;i++){
-      const d = document.createElement("button");
-      d.className = "dot" + (i===idx ? " active" : "");
-      d.type = "button";
-      d.setAttribute("aria-label", `Go to slide ${i+1}`);
-      d.addEventListener("click", () => { goTo(i); restart(); });
-      dotsEl.appendChild(d);
+    function buildDots(){
+      if(!dotsContainer) return;
+      dotsContainer.innerHTML = "";
+      images.forEach((_, i) => {
+        const dot = document.createElement("span");
+        dot.addEventListener("click", () => showSlide(i, true));
+        dotsContainer.appendChild(dot);
+      });
     }
-  }
 
-  function goTo(i){
-    idx = (i + total) % total;
-    slidesEl.style.transform = `translateX(-${idx*100}%)`;
-    [...dotsEl.children].forEach((d, k) => d.classList.toggle("active", k===idx));
-  }
+    function setActiveDot(i){
+      if(!dotsContainer) return;
+      [...dotsContainer.children].forEach(d => d.classList.remove("active"));
+      if(dotsContainer.children[i]) dotsContainer.children[i].classList.add("active");
+    }
 
-  function next(){ goTo(idx+1); }
-  function prev(){ goTo(idx-1); }
+    function showSlide(i, resetTimer=false){
+      if(!slides || images.length === 0) return;
+      index = i;
+      slides.style.transform = `translateX(${-i * 100}%)`;
+      setActiveDot(i);
+      if(resetTimer){
+        stopAuto();
+        startAuto();
+      }
+    }
 
-  function start(){
-    playing = true;
-    document.getElementById("pause").textContent = "Pause";
-    timer = setInterval(next, intervalMs);
-  }
+    function nextSlide(){
+      if(images.length === 0) return;
+      index = (index + 1) % images.length;
+      showSlide(index);
+    }
 
-  function stop(){
-    playing = false;
-    document.getElementById("pause").textContent = "Play";
-    clearInterval(timer);
-    timer = null;
-  }
+    function startAuto(){
+      if(images.length <= 1) return;
+      timer = setInterval(nextSlide, intervalMs);
+    }
 
-  function restart(){
-    if(!playing) return;
-    clearInterval(timer);
-    timer = setInterval(next, intervalMs);
-  }
+    function stopAuto(){
+      if(timer) clearInterval(timer);
+      timer = null;
+    }
 
-  document.getElementById("next").addEventListener("click", () => { next(); restart(); });
-  document.getElementById("prev").addEventListener("click", () => { prev(); restart(); });
-  document.getElementById("pause").addEventListener("click", () => { playing ? stop() : start(); });
-
-  // Optional: pause on hover
-  const slider = document.querySelector(".slider");
-  slider.addEventListener("mouseenter", () => stop());
-  slider.addEventListener("mouseleave", () => start());
-
-  renderDots();
-  goTo(0);
-  start();
-</script>
+    // init
+    buildDots();
+    showSlide(0);
+    startAuto();
+  </script>
 </body>
 </html>
