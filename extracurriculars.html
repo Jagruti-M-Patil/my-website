@@ -1,1 +1,407 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Extracurriculars | Jagruti Patil</title>
+  <meta name="description" content="Training, certifications, service roles, and honors of Jagruti Patil." />
+
+  <style>
+    :root{
+      --bg:#0b1220;
+      --card:#121b2e;
+      --text:#e7ecff;
+      --muted:#a9b3d6;
+      --accent:#6aa6ff;
+      --border:rgba(255,255,255,.10);
+      --shadow:0 10px 30px rgba(0,0,0,.35);
+      --radius:18px;
+      --max:1100px;
+    }
+
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0}
+    body{
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial, "Noto Sans", "Liberation Sans";
+      background:
+        radial-gradient(1200px 700px at 70% 0%, rgba(106,166,255,.18), transparent 60%),
+        radial-gradient(900px 600px at 20% 20%, rgba(86,255,200,.10), transparent 60%),
+        var(--bg);
+      color:var(--text);
+      line-height:1.6;
+    }
+
+    a{color:var(--accent); text-decoration:none}
+    a:hover{text-decoration:underline}
+
+    /* Top nav */
+    .topbar{
+      position:sticky; top:0; z-index:50;
+      background: rgba(11,18,32,.78);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav{
+      max-width:var(--max);
+      margin:0 auto;
+      padding:14px 18px;
+      display:flex;
+      align-items:center;
+      justify-content:space-between;
+      gap:14px;
+    }
+    .brand{
+      display:flex; align-items:center; gap:10px;
+      font-weight:800; letter-spacing:.2px;
+    }
+    .logo{
+      width:40px; height:40px; border-radius:14px;
+      background: linear-gradient(135deg, rgba(106,166,255,.95), rgba(86,255,200,.80));
+      box-shadow: var(--shadow);
+      flex:0 0 auto;
+    }
+    .tabs{
+      display:flex; flex-wrap:wrap; gap:8px;
+      align-items:center;
+      justify-content:flex-end;
+    }
+    .tab{
+      padding:10px 12px;
+      border-radius:12px;
+      border:1px solid transparent;
+      color:var(--text);
+      font-weight:600;
+      font-size:14px;
+      opacity:.92;
+    }
+    .tab:hover{
+      border-color: var(--border);
+      background: rgba(255,255,255,.04);
+      text-decoration:none;
+    }
+    .tab.active{
+      border-color: var(--border);
+      background: rgba(255,255,255,.06);
+      opacity:1;
+    }
+
+    /* Layout */
+    main{
+      max-width:var(--max);
+      margin:0 auto;
+      padding: 26px 18px 60px;
+    }
+    .pageTitle{
+      margin: 8px 0 6px;
+      font-size: 34px;
+      letter-spacing:-.5px;
+    }
+    .subtitle{
+      margin: 0 0 18px;
+      color: var(--muted);
+      max-width: 78ch;
+    }
+
+    .section-card{
+      background: rgba(18,27,46,.84);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 18px 18px;
+      margin: 14px 0;
+    }
+
+    .section-title{
+      margin: 0 0 12px;
+      font-size: 20px;
+      letter-spacing:-.2px;
+    }
+
+    .two-col{
+      display:grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 16px;
+      align-items: start;
+    }
+
+    ul{margin: 8px 0 0; padding-left: 20px;}
+    li{margin: 10px 0; color: var(--text);}
+
+    .meta{
+      color: var(--muted);
+      font-size: 14px;
+      margin-top: 10px;
+    }
+
+    /* Slider (reusable) */
+    .slider{
+      position: relative;
+      overflow: hidden;
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      background: rgba(0,0,0,.18);
+      box-shadow: var(--shadow);
+      min-height: 260px;
+    }
+    .slides{
+      display:flex;
+      transition: transform .6s ease;
+      will-change: transform;
+    }
+    .slides img{
+      width:100%;
+      flex: 0 0 100%;
+      height: 280px;
+      object-fit: contain;            /* ✅ no head cutoffs */
+      background: rgba(0,0,0,.18);
+      display:block;
+    }
+    .dots{
+      text-align:center;
+      margin-top: 10px;
+      user-select:none;
+    }
+    .dots span{
+      display:inline-block;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.35);
+      margin: 0 4px;
+      cursor: pointer;
+      border: 1px solid rgba(255,255,255,.15);
+    }
+    .dots span.active{ background: var(--accent); }
+
+    .placeholder{
+      height: 280px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding: 18px;
+      text-align:center;
+      color: var(--muted);
+      font-size: 14px;
+    }
+
+    footer{
+      max-width:var(--max);
+      margin:0 auto;
+      padding: 18px;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+      text-align:center;
+      font-size: 13px;
+      opacity:.9;
+    }
+
+    @media (max-width: 900px){
+      .two-col{grid-template-columns: 1fr;}
+      .slides img{height: 260px;}
+    }
+    @media (max-width: 720px){
+      .pageTitle{font-size:28px}
+      .tab{font-size:13px; padding:9px 10px}
+    }
+  </style>
+</head>
+
+<body>
+  <!-- NAV -->
+  <div class="topbar">
+    <div class="nav">
+      <div class="brand">
+        <div class="logo" aria-hidden="true"></div>
+        <div>Jagruti Patil</div>
+      </div>
+
+      <div class="tabs">
+        <a class="tab" href="index.html">Home</a>
+        <a class="tab" href="education.html">Education & Experience</a>
+        <a class="tab" href="projects.html">Course Projects</a>
+        <a class="tab" href="ta.html">Teaching Assistantships</a>
+        <a class="tab" href="research.html">Research</a>
+        <a class="tab" href="publications.html">Publications & Conferences</a>
+        <a class="tab active" href="extracurriculars.html">Extracurriculars</a>
+      </div>
+    </div>
+  </div>
+
+  <main>
+    <h1 class="pageTitle">Extracurriculars</h1>
+    <p class="subtitle">
+      Training & certifications, professional service, leadership roles, and honors.
+    </p>
+
+    <!-- TRAINING -->
+    <section class="section-card">
+      <h2 class="section-title">Training & Certifications</h2>
+
+      <div class="two-col">
+        <div>
+          <ul>
+            <li>R10 Ethics Champion, IEEE R10 Ethics Super Power Challenge Assessment (2024)</li>
+            <li>Certification in Scientific Writing by IIT Gandhinagar (2023)</li>
+            <li>Workshop on Ethical Conduct of Research on Human Participants, IIT Gandhinagar (2023)</li>
+            <li>Foundations of Healthcare Systems Engineering: Johns Hopkins University – Coursera</li>
+          </ul>
+          <p class="meta">Add certificate images on the right (optional).</p>
+        </div>
+
+        <div>
+          <!-- ✅ Put your images here (upload them to the repo) -->
+          <div class="slider" id="sliderTrain">
+            <div class="slides">
+              <!-- Example file names (replace with your real image names) -->
+              <!-- <img src="train_1.jpg" alt="Certification 1"> -->
+              <!-- <img src="train_2.jpg" alt="Certification 2"> -->
+              <div class="placeholder">
+                Upload 1–3 certificate photos (JPG/PNG) and uncomment the &lt;img&gt; lines here.
+              </div>
+            </div>
+          </div>
+          <div class="dots" id="dotsTrain"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SERVICE -->
+    <section class="section-card">
+      <h2 class="section-title">Service & Leadership Roles</h2>
+
+      <div class="two-col">
+        <div>
+          <ul>
+            <li>Member of 2025 Ultrasonics Student Volunteer Committee (IEEE IUS 2025)</li>
+            <li>Organizing Team Member: NYASA IIT Gandhinagar – Spreading Smiles (2024, 2025)</li>
+            <li>Local Organizing Team Committee Member, IEEE South Asian Ultrasonics Symposium 2024</li>
+            <li>Volunteer – 7th edition of Sanjeevani: Health and Awareness Mela by NYASA IITGN (2023)</li>
+            <li>Volunteer – Orientation program: 1st year B.E. Biomedical Freshers, LDCE (2019)</li>
+            <li>Exam Writer – Divyang Seva Mandal: University exam for Blind students (2017)</li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="slider" id="sliderService">
+            <div class="slides">
+              <!-- Example:
+              <img src="service_1.jpg" alt="Volunteer activity">
+              <img src="service_2.jpg" alt="Organizing team">
+              -->
+              <div class="placeholder">
+                Upload 1–5 event photos (JPG/PNG) and add them here to create a slider.
+              </div>
+            </div>
+          </div>
+          <div class="dots" id="dotsService"></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HONORS -->
+    <section class="section-card">
+      <h2 class="section-title">Honors</h2>
+
+      <div class="two-col">
+        <div>
+          <ul>
+            <li><b>Best Poster Award</b>, Annual PMRF Symposium, IIT Hyderabad (2025) — Category: Biological Sciences & Engineering</li>
+            <li><b>3rd Place, Best Poster Award</b>, IEEE South Asian Ultrasonics Symposium, Gandhinagar, India (2024)</li>
+            <li>Prime Minister’s Research Fellowship (PMRF), May 2023 (Cycle 11)</li>
+            <li>GATE Biomedical 2022: <b>AIR 19</b> (out of 1614 candidates)</li>
+            <li><b>Gold Medalist</b>: Branch Topper – B.E. Biomedical Engineering (2021)</li>
+            <li>Kaizen 2021: <b>Second position</b> – Final Year U.G. Project (Neuron modeling for healthy & Alzheimer’s condition)</li>
+          </ul>
+        </div>
+
+        <div>
+          <div class="slider" id="sliderHonors">
+            <div class="slides">
+              <!-- Example:
+              <img src="honor_1.jpg" alt="Award photo">
+              <img src="honor_2.jpg" alt="Medal">
+              -->
+              <div class="placeholder">
+                Upload award/medal photos (JPG/PNG) and add them here.
+              </div>
+            </div>
+          </div>
+          <div class="dots" id="dotsHonors"></div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    © <span id="year"></span> Jagruti Patil · Hosted on GitHub Pages
+  </footer>
+
+  <script>
+    // footer year
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    function initSlider(sliderId, dotsId, intervalMs=3500){
+      const slider = document.getElementById(sliderId);
+      if(!slider) return;
+
+      const slidesWrap = slider.querySelector(".slides");
+      if(!slidesWrap) return;
+
+      // If placeholder exists, do nothing
+      const imgs = slidesWrap.querySelectorAll("img");
+      const dotsContainer = document.getElementById(dotsId);
+      if(imgs.length <= 1){
+        if(dotsContainer) dotsContainer.innerHTML = "";
+        return;
+      }
+
+      let idx = 0;
+      let timer = null;
+
+      function buildDots(){
+        if(!dotsContainer) return;
+        dotsContainer.innerHTML = "";
+        imgs.forEach((_, i) => {
+          const dot = document.createElement("span");
+          dot.addEventListener("click", () => show(i, true));
+          dotsContainer.appendChild(dot);
+        });
+      }
+
+      function setActive(i){
+        if(!dotsContainer) return;
+        [...dotsContainer.children].forEach(d => d.classList.remove("active"));
+        if(dotsContainer.children[i]) dotsContainer.children[i].classList.add("active");
+      }
+
+      function show(i, reset=false){
+        idx = i;
+        slidesWrap.style.transform = `translateX(${-i * 100}%)`;
+        setActive(i);
+        if(reset){
+          stop();
+          start();
+        }
+      }
+
+      function next(){
+        idx = (idx + 1) % imgs.length;
+        show(idx);
+      }
+
+      function start(){ timer = setInterval(next, intervalMs); }
+      function stop(){ if(timer) clearInterval(timer); timer = null; }
+
+      buildDots();
+      show(0);
+      start();
+    }
+
+    initSlider("sliderTrain", "dotsTrain");
+    initSlider("sliderService", "dotsService");
+    initSlider("sliderHonors", "dotsHonors");
+  </script>
+</body>
+</html>
 
