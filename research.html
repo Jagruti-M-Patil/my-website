@@ -179,6 +179,67 @@
       color:#07101f;
     }
 
+    /* Theme image block */
+    .thumb{
+      margin-top: 10px;
+      border-radius: 14px;
+      border: 1px solid var(--border);
+      overflow: hidden;
+      background: rgba(0,0,0,.16);
+    }
+    .thumb img{
+      width: 100%;
+      height: 160px;
+      object-fit: contain;             /* ✅ no cropping */
+      background: rgba(0,0,0,.18);
+      display: block;
+    }
+    .thumb .cap{
+      padding: 10px 12px;
+      font-size: 12.5px;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+    }
+
+    /* Research gallery slider */
+    .rslider{
+      margin-top: 14px;
+      overflow: hidden;
+      border-radius: 16px;
+      border: 1px solid var(--border);
+      background: rgba(0,0,0,.18);
+      box-shadow: var(--shadow);
+    }
+    .rslides{
+      display:flex;
+      transition: transform .6s ease;
+      will-change: transform;
+    }
+    .rslides img{
+      width:100%;
+      flex: 0 0 100%;
+      height: 360px;
+      object-fit: contain;             /* ✅ no cropping */
+      background: rgba(0,0,0,.18);
+      display:block;
+    }
+    .rdots{
+      text-align:center;
+      margin-top: 10px;
+      user-select:none;
+    }
+    .rdots span{
+      display:inline-block;
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+      background: rgba(255,255,255,.35);
+      margin: 0 4px;
+      cursor: pointer;
+      border: 1px solid rgba(255,255,255,.15);
+    }
+    .rdots span.active{ background: var(--accent); }
+
     footer{
       max-width: var(--max);
       margin: 0 auto;
@@ -193,6 +254,7 @@
       .tabs{ justify-content:flex-start; }
       .grid{ grid-template-columns: 1fr; }
       .two-col{ grid-template-columns: 1fr; }
+      .rslides img{ height: 280px; }
     }
   </style>
 </head>
@@ -255,6 +317,10 @@
         <li>Parameter estimation and fitting strategies for robust, reproducible QUS biomarkers.</li>
         <li>Interpreting parameter trends in terms of microstructural heterogeneity and scatterer statistics.</li>
       </ul>
+      <div class="thumb">
+        <img src="theme_envstats.jpg" alt="Envelope statistics example figure">
+        <div class="cap">Add a figure: fitted PDFs / parametric map / workflow snapshot.</div>
+      </div>
     </div>
 
     <div class="mini">
@@ -265,6 +331,10 @@
         <li>Generating parametric maps (e.g., IWPR) to visualize inherent tissue scattering changes.</li>
         <li>Validation using controlled acquisitions and ROI-based analysis.</li>
       </ul>
+      <div class="thumb">
+        <img src="theme_hscan.jpg" alt="H-scan imaging example figure">
+        <div class="cap">Add a figure: GH filter bank / H-scan overlay / IWPR example.</div>
+      </div>
     </div>
 
     <div class="mini">
@@ -275,6 +345,10 @@
         <li>ROI-driven evaluation and effect-size analysis across conditions and timepoints.</li>
         <li>Building reproducible pipelines in MATLAB/Python with standardized outputs.</li>
       </ul>
+      <div class="thumb">
+        <img src="theme_phantom.jpg" alt="Phantom or ex-vivo setup image">
+        <div class="cap">Add a photo: phantom setup / ex-vivo sample / analysis pipeline.</div>
+      </div>
     </div>
   </div>
 
@@ -287,7 +361,7 @@
         <li><strong>Ocular tissue (research/translation):</strong> envelope-statistics based characterization for choroidal tumor differentiation (project context).</li>
       </ul>
       <p style="margin-top:10px;">
-        (I keep this page focused on methods and applications; detailed outcomes and citations live in the Publications section.)
+        (This page highlights methods and applications; detailed outcomes and citations live in the Publications section.)
       </p>
     </div>
 
@@ -302,6 +376,20 @@
       </ul>
     </div>
   </div>
+
+  <div class="card" style="margin-top:14px;">
+    <h2>Research Gallery</h2>
+    <p>Selected visuals from experiments, pipelines, and presentations (placeholders for now).</p>
+
+    <div class="rslider" aria-label="Research image slider">
+      <div class="rslides" id="rSlides">
+        <img src="rg_1.jpg" alt="Research gallery image 1">
+        <img src="rg_2.jpg" alt="Research gallery image 2">
+        <img src="rg_3.jpg" alt="Research gallery image 3">
+      </div>
+    </div>
+    <div class="rdots" id="rDots" aria-label="Slider dots"></div>
+  </div>
 </main>
 
 <footer>
@@ -310,6 +398,52 @@
 
 <script>
   document.getElementById("year").textContent = new Date().getFullYear();
+
+  // Research gallery slider
+  (function(){
+    const slides = document.getElementById("rSlides");
+    if(!slides) return;
+
+    const imgs = slides.querySelectorAll("img");
+    const dots = document.getElementById("rDots");
+    if(!dots || imgs.length <= 1) return;
+
+    let idx = 0;
+    let timer = null;
+
+    function buildDots(){
+      dots.innerHTML = "";
+      imgs.forEach((_, i) => {
+        const d = document.createElement("span");
+        d.addEventListener("click", () => show(i, true));
+        dots.appendChild(d);
+      });
+    }
+
+    function setActive(i){
+      [...dots.children].forEach(x => x.classList.remove("active"));
+      if(dots.children[i]) dots.children[i].classList.add("active");
+    }
+
+    function show(i, reset=false){
+      idx = i;
+      slides.style.transform = `translateX(${-i*100}%)`;
+      setActive(i);
+      if(reset){
+        clearInterval(timer);
+        timer = setInterval(next, 3500);
+      }
+    }
+
+    function next(){
+      idx = (idx + 1) % imgs.length;
+      show(idx);
+    }
+
+    buildDots();
+    show(0);
+    timer = setInterval(next, 3500);
+  })();
 </script>
 </body>
 </html>
