@@ -120,6 +120,27 @@
       color:var(--muted);
     }
 
+  .yt-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 10px;
+    margin-left: 6px;
+    border-radius: 999px;
+    font-size: 13px;
+    font-weight: 800;
+    color: #fff;
+    background: linear-gradient(135deg, #ff4d4d, #ff0000);
+    text-decoration: none;
+    box-shadow: 0 6px 18px rgba(255,0,0,.25);
+  }
+  
+  .yt-badge:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 8px 22px rgba(255,0,0,.35);
+  }
+
+
     footer{
       max-width: var(--max);
       margin: 0 auto;
@@ -191,11 +212,13 @@
   <div class="card">
   <h2>PMRF Teaching Assistantships</h2>
 
-  <p class="meta">
-    Selected NPTEL and external teaching engagements.
-    Video lectures available on
-    <a href="https://www.youtube.com/@JagrutiMPatil" target="_blank">YouTube</a>.
-  </p>
+  <p>
+  Selected NPTEL and external teaching engagements.
+  Video lectures available on
+  <a class="yt-badge" href="https://www.youtube.com/@JagrutiMPatil" target="_blank">
+    ▶ YouTube
+  </a>
+</p>
 
     <ul>
     <li>
