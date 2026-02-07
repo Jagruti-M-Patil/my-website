@@ -56,11 +56,24 @@
       letter-spacing:.2px;
       white-space:nowrap;
     }
+    
     .logo{
-      width:34px;height:34px;border-radius:10px;
-      background: linear-gradient(135deg, var(--accent), #7dffcc);
-      box-shadow: 0 10px 24px rgba(106,166,255,.22);
+      width:38px;
+      height:38px;
+      border-radius:50%;
+      overflow:hidden;
+      border:2px solid rgba(255,255,255,0.25);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.35);
+      background: #0b1220;
     }
+    
+    .logo img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+    }
+
 
     nav{ margin-left:auto; }
     .tabs{
@@ -202,7 +215,9 @@
   <header>
     <div class="nav">
       <div class="brand">
-        <div class="logo" aria-hidden="true"></div>
+        <div class="logo">
+          <img src="cartoonizepic.png" alt="Jagruti Patil avatar">
+        </div>
         <span>Jagruti Patil</span>
       </div>
 
