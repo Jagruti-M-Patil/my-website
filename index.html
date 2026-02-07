@@ -85,7 +85,6 @@
       border-color: var(--border);
       background: rgba(255,255,255,.05);
     }
-    /* Active tab (Home) */
     .tab.active{
       color: var(--text);
       border-color: var(--border);
@@ -126,6 +125,18 @@
       padding: 7px 10px;
       border-radius: 999px;
     }
+
+    .social-links{
+      margin-top: 10px;
+      font-size: 14px;
+      color: var(--muted);
+    }
+    .social-links a{
+      color: var(--accent);
+      font-weight: 700;
+      text-decoration: none;
+    }
+    .social-links a:hover{ text-decoration: underline; }
 
     .profile{
       display:flex;
@@ -222,11 +233,19 @@
         </p>
 
         <p>
-          I develop and evaluate methods based on <strong>envelope statistics</strong> (e.g., Nakagami and Burr),
-          <strong>and H-scan imaging</strong> to quantify microstructural changes in tissue.
-          I completed my B.E. in Biomedical Engineering from <strong>L.D. College of Engineering, Ahmedabad</strong> (2021),
-          and I’m motivated by research that can support earlier diagnosis and improved outcomes.
+          I develop and evaluate methods based on <strong>envelope statistics</strong> (e.g., Nakagami and Burr) and
+          <strong>H-scan imaging</strong> to quantify microstructural changes in tissue using
+          tissue-mimicking phantoms and ex-vivo studies. I completed my B.E. in Biomedical Engineering from
+          <strong>L.D. College of Engineering, Ahmedabad</strong> (2021).
         </p>
+
+        <div class="social-links">
+          <a href="https://scholar.google.com/citations?user=1HoNZRIAAAAJ&hl=en" target="_blank" rel="noopener">Google Scholar</a>
+          ·
+          <a href="https://www.linkedin.com/in/jagruti-m-patil/" target="_blank" rel="noopener">LinkedIn</a>
+          ·
+          <a href="https://www.youtube.com/@JagrutiMPatil" target="_blank" rel="noopener">YouTube</a>
+        </div>
 
         <div class="pill-row" aria-label="Highlights">
           <span class="pill">Quantitative Ultrasound</span>
@@ -239,11 +258,11 @@
           <a class="btn primary" href="research.html">Explore Research</a>
           <a class="btn" href="publications.html">Publications</a>
           <a class="btn" href="education.html">Education</a>
+          <a class="btn" href="extracurriculars.html">Extracurriculars</a>
         </div>
       </div>
 
       <div class="card profile">
-        <!-- Keep your current photo filename here -->
         <img src="photo.jpg" alt="Photo of Jagruti Patil" />
       </div>
     </section>
